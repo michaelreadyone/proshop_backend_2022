@@ -4,3 +4,4 @@
   - `pip install django==3.1.4`
   - `django-admin startproject backend .`
   - `python manage.py startapp base`
+  - `pip install djangorestframework==3.12.2`

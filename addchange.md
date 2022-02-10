@@ -8,3 +8,6 @@
 - S3L13
   - set CORS, allow django to be visited by frontend urls
     - `pip install django-cors-headers==3.6.0`
+- S3L14
+  - `python manage.py migrate`
+  - `python manage.py createsuperuser`

@@ -5,6 +5,7 @@ from rest_framework.response import Response
 
 from .models import Product
 from .serializers import ProductSerializer
+import time
 
 # Create your views here.
 
@@ -30,12 +31,15 @@ def getRoutes(request):
 def getProducts(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
+    print('sleep for 1 s')
+    time.sleep(0.3) # test Loading from frontend
     return Response(serializer.data)
 
 @api_view(['GET'])
 def getProduct(request, pk):
     product = Product.objects.get(_id=pk)
     serializer = ProductSerializer(product)
+    time.sleep(0.3) 
     return Response(serializer.data)
 
 

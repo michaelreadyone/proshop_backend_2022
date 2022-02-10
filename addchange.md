@@ -11,3 +11,8 @@
 - S3L14
   - `python manage.py migrate`
   - `python manage.py createsuperuser`
+- S4L15
+  - `python manage.py makemigrations`
+- S4L16
+  - `pip install pillow==8.0.1`
+  - By default, the image from model will be saved into root folder

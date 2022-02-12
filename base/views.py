@@ -8,6 +8,24 @@ from .serializers import ProductSerializer
 import time
 
 # Create your views here.
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['username'] = user.username
+        token['message'] = 'hello world'
+
+        return token
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
+
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -27,19 +45,19 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+
 @api_view(['GET'])
 def getProducts(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
     print('sleep for 1 s')
-    time.sleep(0.3) # test Loading from frontend
+    time.sleep(0.3)  # test Loading from frontend
     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def getProduct(request, pk):
     product = Product.objects.get(_id=pk)
     serializer = ProductSerializer(product)
-    time.sleep(0.3) 
+    time.sleep(0.3)
     return Response(serializer.data)
-
-

@@ -16,3 +16,6 @@
 - S4L16
   - `pip install pillow==8.0.1`
   - By default, the image from model will be saved into root folder
+- S6L32
+  - `pip install djangorestframework-simplejwt==5.0.0`
+  - Customize expired time from 5 min to 1 day

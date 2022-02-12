@@ -19,3 +19,7 @@
 - S6L32
   - `pip install djangorestframework-simplejwt==5.0.0`
   - Customize expired time from 5 min to 1 day
+- S6L33
+  - JWT customize 1 encode other information in token
+  - JWT customize 2 show other information in api return together with token
+  - [TokenObtainPairSerializer](<https://github.com/jazzband/djangorestframework-simplejwt/blob/master/rest_framework_simplejwt/serializers.py>)

@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Product
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, UserSerializer
 import time
 
 # Create your views here.
@@ -42,12 +42,17 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+@api_view(['GET'])
+def getUserProfile(request):
+    user=request.user
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def getProducts(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
-    print('sleep for 1 s')
+    print('sleep for 0.3 s')
     time.sleep(0.3)  # test Loading from frontend
     return Response(serializer.data)
 

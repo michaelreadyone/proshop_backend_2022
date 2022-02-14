@@ -23,3 +23,5 @@
   - JWT customize 1 encode other information in token
   - JWT customize 2 show other information in api return together with token
   - [TokenObtainPairSerializer](<https://github.com/jazzband/djangorestframework-simplejwt/blob/master/rest_framework_simplejwt/serializers.py>)
+- S6L37
+  - Django signal to make username to email
